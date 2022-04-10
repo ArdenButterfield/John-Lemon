@@ -11,10 +11,13 @@ public class PlayerMovement : MonoBehaviour
     Vector3 m_Movement;
     Quaternion m_Rotation = Quaternion.identity;
 
+    AudioSource m_AudioSource;
+
     void Start()
     {
         m_Animator = GetComponent<Animator>();
         m_Rigidbody = GetComponent<Rigidbody>();
+        m_AudioSource = GetComponent<AudioSource>();
     }
 
     void FixedUpdate()
@@ -29,6 +32,19 @@ public class PlayerMovement : MonoBehaviour
         bool hasVerticalInput = !Mathf.Approximately(vertical, 0f);
         bool isWalking = hasHorizontalInput || hasVerticalInput;
         m_Animator.SetBool("IsWalking", isWalking);
+
+        if(isWalking)
+        {
+            if(!m_AudioSource.isPlaying)
+            {
+                m_AudioSource.Play ();
+            }
+        }
+        else
+        {
+            m_AudioSource.Stop ();
+
+        }
 
         // RotateTowards(rotate from this component's forward vector, rotate towards, change in angle, change in magnitude)
         // Time.deltaTime is included in the change in angle so framerate doesn't affect how fast he turns.
