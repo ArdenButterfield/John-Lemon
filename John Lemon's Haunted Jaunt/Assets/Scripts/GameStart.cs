@@ -36,10 +36,11 @@ public class GameStart : MonoBehaviour
 
     void ShowEntranceText()
     {
-        Vector3 forward = transform.TransformDirection(Vector3.forward);
-        Vector3 toOther = player.transform.position - transform.position;
+        // Create two vectors 
+        Vector3 trigger_forward = transform.TransformDirection(Vector3.forward);
+        Vector3 head_to_head = player.transform.position - transform.position;
 
-        if (Vector3.Dot(forward, toOther) < 0)
+        if (Vector3.Dot(trigger_forward, head_to_head) < 0)
         {
             entranceText.SetActive(true);
         }

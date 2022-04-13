@@ -9,7 +9,17 @@ Arden Butterfield:
 - Linear interpolation element
 - particle effect
 
+Donny Ebel:
+-Character movement
+-The Environment
+-The Camera
+-Ending the Game
+-Dot matrix
+
+
 ## Dot Product Element
+
+I used a dot product to create a one-way trigger near the starting point, displaying the game title. It will show the text for two seconds only if you are moving forward. I take the John Lemon's vector and subtract the trigger's forward vector, yielding a new one that points from the head of the player's vector to the trigger's. I then call Unity's dot matrix function with the trigger's forward vector and the head-to-head vector. This function returns the magnitudes of those vectors multiplied together with the cosine of theta (of the angle between them). This is a float between 0 and 1. I then test to see if the result is less than 0. If it is, this means John is facing the same direction as the trigger, and is therefore walking the correct direction. If you walk backwards over the trigger, the text will not display. I do not destroy the object, so if you walk forward again the text will re-trigger.
 
 ## Linear Interpolation Element
 
