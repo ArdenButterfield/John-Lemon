@@ -10,11 +10,11 @@ Arden Butterfield:
 - particle effect
 
 Donny Ebel:
--Character movement
--The Environment
--The Camera
--Ending the Game
--Dot matrix
+- Character movement
+- The Environment
+- The Camera
+- Ending the Game
+- Dot matrix
 
 
 ## Dot Product Element
